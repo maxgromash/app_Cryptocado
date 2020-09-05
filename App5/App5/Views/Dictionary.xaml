@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App5.Views.Dictionary">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Назад" Clicked="Button_Clicked"  HorizontalOptions="CenterAndExpand" BackgroundColor="White" BorderColor="Black" 
+                    BorderWidth="1" Margin="10" CornerRadius="10" WidthRequest="350"/>
+            <SearchBar x:Name="CountriesSearchBar"  
+                        TextChanged="Handle_SearchButtonPressed"/>
+
+            <ListView x:Name="list" HasUnevenRows="True" SelectionMode="None" ItemTapped="list_ItemTapped"> 
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame HeightRequest="30" CornerRadius="10" BorderColor="Gray" Margin="5">
+                                    <Label Text="{Binding Word}" FontSize="25" Padding="15,0,0,0" TextColor="Black" 
+                                           VerticalOptions="CenterAndExpand" FontFamily="a.otf#main"/>
+                                </Frame>
+                           
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

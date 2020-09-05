@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App5.Views.QuizPage"
+             BackgroundColor="Black">
+    <!--Стили-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="butStyle" TargetType="Button">
+                <Setter Property="HeightRequest" Value="80"/>
+                <Setter Property="WidthRequest" Value="300"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="1"/>
+                <Setter Property="BackgroundColor" Value="Gray"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BorderColor" Value="White"/>
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="BackgroundColor" Value="Black"/>
+                <Setter Property="Opacity" Value="0.78"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <!--Вопросы-->
+        <StackLayout>
+            <ScrollView>
+                <ListView x:Name="courseList" HasUnevenRows="True" SelectionMode="None" SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="20,20,20,20">
+                                    <Label x:Name="Ans3" Text="{Binding Question}" HorizontalOptions="CenterAndExpand" FontFamily="a.otf#main" TextColor="White" FontSize="25" Padding="30,0,30,0"/>
+                                    <Button Text="{Binding Ans1}" Style="{StaticResource butStyle}" Clicked="Button_Clicked"/>
+                                    <Button Text="{Binding Ans2}" Style="{StaticResource butStyle}" Clicked="Button_Clicked"/>
+                                    <Button Text="{Binding Ans3}" Style="{StaticResource butStyle}" Clicked="Button_Clicked"/>
+                                    <Button Text="{Binding Ans4}" Style="{StaticResource butStyle}" Clicked="Button_Clicked"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

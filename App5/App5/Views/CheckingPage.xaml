@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App5.Views.CheckingPage"
+             x:Name="content">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="base" TargetType="Button">
+                <Setter Property="FontFamily" Value="a.otf#main"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="Margin" Value="7"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Frame CornerRadius="15" Margin="4" BorderColor="Black">
+                    <Image x:Name="image"/>
+                </Frame>
+                <StackLayout Orientation="Horizontal" >
+                    <Button x:Name="buy" Text="Купить" Style="{StaticResource base}" Clicked="GiveAnswer" HorizontalOptions="FillAndExpand" />
+                    <Button x:Name="sell" Text="Продать" Style="{StaticResource base}" Clicked="GiveAnswer" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <Button Text="Назад" Style="{StaticResource base}" Clicked="Button_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

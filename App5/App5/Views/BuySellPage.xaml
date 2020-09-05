@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             mc:Ignorable="d"
+             x:Class="App5.Views.BuySellPage">
+    <!--Стили-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="Margin" Value="7"/>
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="CornerRadius" Value="10"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <forms:AnimationView x:Name="animationView" Animation="money.json" Loop="true" AutoPlay="true" HeightRequest="250" VerticalOptions="CenterAndExpand"/>
+                <!--Блок покупки и продажи валюты-->
+                <Frame Margin="5" CornerRadius="10" BorderColor="Gray" VerticalOptions="StartAndExpand">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Text="0" FontSize="17" HorizontalOptions="Start" Margin="22,0,0,0"/>
+                            <Label x:Name="max" Text="1000" FontSize="17" HorizontalOptions="EndAndExpand" Margin="0,0,0,0"/>
+                            <Image x:Name="currentImage" HeightRequest="20"/>
+                        </StackLayout>
+                        <Slider x:Name="slider" ValueChanged="slider_ValueChanged" Value="{Binding CurrentValue}" 
+                            ThumbColor="Black" MinimumTrackColor="Green" MaximumTrackColor="Black" Margin="10,10,10,10"/>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="usd.png" HeightRequest="30"/>
+                            <Label x:Name="usd" FontSize="30" Margin="10,0,0,0"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Image x:Name="cryptImage" HeightRequest="30"/>
+                            <Label x:Name="crypto" FontSize="30" Margin="10,0,0,0"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Margin="0,0,0,0">
+                            <Button x:Name="buy" Text="Купить" Style="{StaticResource ButtonStyle}"  BackgroundColor="White" TextColor="Black" Clicked="Button_Clicked_3" BorderWidth="3"/>
+                            <Switch x:Name="toggle" IsToggled="False" Toggled="Switch_Toggled" />
+                            <Button x:Name="sell" Text="Продать" Style="{StaticResource ButtonStyle}" BackgroundColor="White" TextColor="Black" IsEnabled="False" Clicked="sell_Clicked" BorderWidth="1"/>
+                        </StackLayout>
+
+
+                        <ActivityIndicator x:Name="activity" IsVisible="False" IsRunning="False"/>
+                    </StackLayout>
+                </Frame>
+                <!--Блок навигации-->
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Сменить пару" Clicked="Button_Clicked" Style="{StaticResource ButtonStyle}"/>
+                    <Button Text="К графику" Clicked="Button_Clicked_1" Style="{StaticResource ButtonStyle}"/>
+                </StackLayout>
+            </StackLayout>   
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

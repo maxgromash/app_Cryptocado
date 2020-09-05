@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App5.Views.Articles"
+             BackgroundColor="White">
+    <!--Стили-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="labelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontFamily" Value="a.otf#main"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            </Style>
+            <Style x:Key="frameStyle" TargetType="Frame">
+                <Setter Property="Opacity" Value="0.8"/>
+                <Setter Property="CornerRadius" Value="25"/>
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="BorderColor" Value="Gray"/>
+                <Setter Property="HeightRequest" Value="160"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Button Text="Словарь" HeightRequest="80" FontSize="25" FontFamily="a.otf#main" Clicked="Button_Clicked" 
+                        BackgroundColor="White" BorderWidth="3" BorderColor="Black" CornerRadius="25" Margin="10"/>
+                <!--Отображние статей-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Frame x:Name="a1" Grid.Column="0" Grid.Row="0" Style="{StaticResource frameStyle}" MinimumHeightRequest="0">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Frame.GestureRecognizers>
+
+                        <StackLayout>
+                            <Image Source="Article0.png" HeightRequest="125" />
+                            <Label Text="Блокчейн" FontSize="25" Style="{StaticResource labelStyle}"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame x:Name="a2" Grid.Column="1" Grid.Row="0" Style="{StaticResource frameStyle}"  MinimumHeightRequest="1">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Frame.GestureRecognizers>
+
+                        <StackLayout>
+                            <Image Source="Article1.png"  HeightRequest="125"/>
+                            <Label Text="Смарт-контракты" FontSize="25" Style="{StaticResource labelStyle}"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame x:Name="a3" Grid.Column="0" Grid.Row="1" Style="{StaticResource frameStyle}"  MinimumHeightRequest="2">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Frame.GestureRecognizers>
+
+                        <StackLayout>
+                            <Image Source="Article2.png" HeightRequest="125"/>
+                            <Label Text="ICO" FontSize="25" Style="{StaticResource labelStyle}"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame x:Name="a4" Grid.Column="1" Grid.Row="1" Style="{StaticResource frameStyle}"  MinimumHeightRequest="3">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Frame.GestureRecognizers>
+
+                        <StackLayout>
+                            <Image Source="Article3.png" HeightRequest="125"/>
+                            <Label Text="Токен" FontSize="25" Style="{StaticResource labelStyle}"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame x:Name="a5" Grid.Column="0" Grid.Row="2" Style="{StaticResource frameStyle}"  MinimumHeightRequest="4">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Frame.GestureRecognizers>
+
+                        <StackLayout>
+                            <Image Source="Article4.png" HeightRequest="125"/>
+                            <Label Text="Майнинг" FontSize="25" Style="{StaticResource labelStyle}"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame x:Name="a6" Grid.Column="1" Grid.Row="2" Style="{StaticResource frameStyle}"  MinimumHeightRequest="5">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Frame.GestureRecognizers>
+
+                        <StackLayout>
+                            <Image Source="Article5.png" HeightRequest="125"/>
+                            <Label Text="Bitcoin" FontSize="25" Style="{StaticResource labelStyle}"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

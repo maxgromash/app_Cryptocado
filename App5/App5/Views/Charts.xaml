@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App5.Views.Charts">
+    <!--Стили-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="labelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Валютный пары" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="Black" FontSize="25" Margin="7,7,-50,7"/>
+                    <Button Text="?" Clicked="Button_Clicked_1" BackgroundColor="White" BorderWidth="1" BorderColor="Green" CornerRadius="90" WidthRequest="40" HeightRequest="40" Margin="5"/>
+                </StackLayout>
+                
+                <!--Верхняя разметка таблицы-->
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="          Лого" Style="{StaticResource labelStyle}"/>
+                    <Label Text="Пара" Style="{StaticResource labelStyle}"/>
+                    <Label Text="Цена" Style="{StaticResource labelStyle}"/>
+                    <Label Text="Max(24)" Style="{StaticResource labelStyle}"/>
+                    <Label Text="Min(24)       " Style="{StaticResource labelStyle}"/>
+                </StackLayout>
+                
+                <!--Валютные пары-->
+                <Frame CornerRadius="10" Margin="7">
+                    <ListView x:Name="coinList" HasUnevenRows="True" SelectionMode="None" ItemTapped ="coinList_ItemTapped"  HeightRequest="440">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" Margin="6">
+                                        <Image Source="{Binding Logo}" HeightRequest="60" />
+                                        <Label Text="{Binding Name}"  Style="{StaticResource labelStyle}" />
+                                        <Label Text="{Binding Lastprice}" Style="{StaticResource labelStyle}"/>
+                                        <Label Text="{Binding Max24}" Style="{StaticResource labelStyle}" TextColor="DarkGreen"/>
+                                        <Label Text="{Binding Min24}" Style="{StaticResource labelStyle}" TextColor="DarkRed"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+
+                <Button Text="Обновить курсы" HorizontalOptions="CenterAndExpand" Clicked="Button_Clicked" WidthRequest="395" BorderWidth="1" CornerRadius="10" BorderColor="Black" BackgroundColor="White"/>
+                <ActivityIndicator x:Name="activity" IsVisible="False" IsRunning="False"/>
+                
+                <Button Text="Практика" HorizontalOptions="CenterAndExpand" Clicked="Button_Clicked_2"  WidthRequest="395" BorderWidth="1" CornerRadius="10" BorderColor="Black" BackgroundColor="White"/>
+                
+                <!--Заголовок-->
+                <Label Text="История операций" Style="{StaticResource labelStyle}" VerticalOptions="Start" FontSize="25" FontAttributes="Bold"/>
+
+                <!--Верхняя разметка таблицы-->
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="         Операция" Style="{StaticResource labelStyle}"/>
+                    <Label Text="Валюта" Style="{StaticResource labelStyle}"/>
+                    <Label Text="Количество" Style="{StaticResource labelStyle}"/>
+                    <Label Text="Цена         " Style="{StaticResource labelStyle}"/>
+                </StackLayout>
+                
+                <!--История операций-->
+                <Frame CornerRadius="10" Margin="7">
+                    <ListView x:Name="operationsList" HasUnevenRows="True" SelectionMode="None" HeightRequest="200">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" Margin="6" Padding="10,0,10,0">
+                                        <Label Text="{Binding Type}"  Style="{StaticResource labelStyle}" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding Currency}" Style="{StaticResource labelStyle}" HorizontalOptions="Start" Padding="40,0,0,0"/>
+                                        <Label Text="{Binding Amount}" Style="{StaticResource labelStyle}"  />
+                                        <Label Text="{Binding Price}" Style="{StaticResource labelStyle}" HorizontalOptions="End"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

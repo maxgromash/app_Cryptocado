@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             mc:Ignorable="d"
+             x:Class="App5.Views.SheetPage"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="stack" BackgroundColor="White">
+                <forms:AnimationView  x:Name="animationViewd" Loop="true" AutoPlay="true" HeightRequest="300"/>
+                <Image x:Name="image"/>
+                <Label x:Name="head" FontSize="27" HorizontalOptions="Center" FontFamily="HeadSheet.ttf#min" TextColor="Black" Padding="30,8"/>
+                <!--Основная информация-->
+                <StackLayout Padding="12,0,12,12">
+                    <Frame CornerRadius="10" Padding="12,12,12,12" BorderColor="Black" HasShadow="True">
+                        <Label x:Name="info"  FontSize="18" HorizontalOptions="CenterAndExpand" Padding="7" TextColor="DarkSlateGray"/>
+                    </Frame>
+                </StackLayout>
+                <!--Блок навигации-->
+                <StackLayout Orientation="Horizontal" Padding="0,3,0,15">
+                    <Button Clicked="Button_Clicked" CornerRadius="7" Text="Назад" HorizontalOptions="CenterAndExpand" WidthRequest="100" BackgroundColor="White" BorderWidth="2" BorderColor="Black"/>
+                    <Button x:Name="number" FontSize="20"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Clicked="number_Clicked" BackgroundColor="White" BorderWidth="2" BorderColor="Black" CornerRadius="7"/>
+                    <Button x:Name="continueBut" CornerRadius="7" Clicked="Button_Clicked_1" Text="Далее" WidthRequest="100" HorizontalOptions="CenterAndExpand"  TextColor="Black" BackgroundColor="White" BorderWidth="2" BorderColor="Black"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
